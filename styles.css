@@ -7,7 +7,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     gap: 20px;
 }
 
@@ -17,4 +17,10 @@ video {
     transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg);
+}
+
+@media (max-width: 768px) {
+    .main {
+        flex-direction: column;
+    }
 }
