@@ -1,7 +1,7 @@
 import kaboom from "https://unpkg.com/kaboom@3000.0.1/dist/kaboom.mjs";
 
 const SCREEN_WIDTH = 396;
-const SCREEN_HEIGHT = 609;
+const SCREEN_HEIGHT = 591;
 const BASE_SPEED = 69;
 let PIPE_SPEED = 120;
 let PLAYER_Y_POS = SCREEN_HEIGHT / 2;
@@ -45,6 +45,8 @@ scene("game-start", () => {
 scene("game-stop", () => {
 	add([sprite("background", { width: width(), height: height() })]);
 
+	window.removeEventListener("updatedPosition", () => {});
+
 	const formatedScore = SCORE.toString().split("");
 	for (let i = 0; i < formatedScore.length; i++) {
 		add([
@@ -64,6 +66,7 @@ scene("game-stop", () => {
 		area(),
 	]);
 	onClick(() => {
+		SCORE = 0;
 		go("game");
 	});
 });
@@ -138,15 +141,18 @@ scene("game", () => {
 	function spawnPipe() {
 		if (GAME_OVER) return;
 
-		const pipeHeight = 390;
-		const pipeGap = 80;
+		const pipeHeight = 320;
+		const pipeGap = 81;
 		const timeFactor = 2;
 		const amplitude = 100;
 
-		const pipeY =
+		let pipeY =
 			SCREEN_HEIGHT / 2 +
 			Math.sin(time() * timeFactor) * amplitude +
 			rand(-50, 0);
+
+		if (pipeY < 192) pipeY = 192;
+		else if (pipeY > 360) pipeY = 360;
 
 		add([
 			sprite("pipe", { flipY: true }),
@@ -170,7 +176,7 @@ scene("game", () => {
 
 	onCollide("pipe", "player", () => {
 		GAME_OVER = true;
-		go("stop-game");
+		go("game-stop");
 	});
 
 	onUpdate("pipe", (pipe) => {
@@ -194,3 +200,5 @@ scene("game", () => {
 		}
 	});
 });
+
+go("game-start");
