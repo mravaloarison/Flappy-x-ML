@@ -40,5 +40,9 @@ video.addEventListener("timeupdate", async () => {
 		return;
 	}
 	lastVideoTime = video.currentTime;
-	await faceDetection.send({ image: video });
+	try {
+		await faceDetection.send({ image: video });
+	} catch {
+		location.reload();
+	}
 });
