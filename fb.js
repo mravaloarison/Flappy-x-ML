@@ -30,6 +30,8 @@ loadSprite("base", "assets/base.png");
 scene("game-start", () => {
 	add([sprite("background", { width: width(), height: height() })]);
 
+	window.removeEventListener("updatedPosition", () => {});
+
 	add([
 		sprite("message"),
 		pos(SCREEN_WIDTH / 2 - 100, SCREEN_HEIGHT / 2 - 100),
