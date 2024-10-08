@@ -1,7 +1,11 @@
 // reload the page two times before launch
 // to allow the webcam to work
-location.reload();
-location.reload();
+let firstTime = localStorage.getItem("firstTime");
+
+if (!firstTime) {
+	localStorage.setItem("firstTime", true);
+	location.reload();
+}
 
 const video = document.getElementById("webcam");
 
