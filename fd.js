@@ -1,9 +1,15 @@
 // reload the page two times before launch
 // to allow the webcam to work
 let firstTime = localStorage.getItem("firstTime");
+let secondTime = localStorage.getItem("secondTime");
 
 if (!firstTime) {
 	localStorage.setItem("firstTime", true);
+	location.reload();
+}
+
+if (firstTime && !secondTime) {
+	localStorage.setItem("secondTime", true);
 	location.reload();
 }
 
