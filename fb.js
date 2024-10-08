@@ -22,9 +22,19 @@ loadSprite("pipe", "assets/pipe-green.png");
 loadSprite("game-over", "assets/gameover.png");
 loadSprite("message", "assets/message.png");
 loadSprite("restart", "assets/restart.png");
-for (let i = 0; i <= 9; i++) {
-	loadSprite(`${i}`, `assets/${i}.png`);
-}
+// for (let i = 0; i <= 9; i++) {
+// 	loadSprite(`${i}`, `assets/${i}.png`);
+// }
+loadSprite("0", "assets/0.png");
+loadSprite("1", "assets/1.png");
+loadSprite("2", "assets/2.png");
+loadSprite("3", "assets/3.png");
+loadSprite("4", "assets/4.png");
+loadSprite("5", "assets/5.png");
+loadSprite("6", "assets/6.png");
+loadSprite("7", "assets/7.png");
+loadSprite("8", "assets/8.png");
+loadSprite("9", "assets/9.png");
 loadSprite("base", "assets/base.png");
 
 scene("game-start", () => {
