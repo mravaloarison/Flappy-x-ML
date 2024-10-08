@@ -121,7 +121,7 @@ scene("game", () => {
 
 	window.addEventListener("updatedPosition", (event) => {
 		const newPos = event.detail.newPos;
-		player.jump(newPos - player.pos.y);
+		// player.jump(newPos - player.pos.y);
 		player.pos.y = newPos;
 	});
 

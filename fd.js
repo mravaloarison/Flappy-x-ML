@@ -12,7 +12,7 @@ video.srcObject = videoStream;
 
 function getLandmarks(results) {
 	if (results.detections.length > 0) {
-		const newPos = results.detections[0].landmarks[4].y * 609;
+		const newPos = results.detections[0].landmarks[4].y * 591;
 
 		const event = new CustomEvent("updatedPosition", {
 			detail: { newPos },
@@ -40,9 +40,5 @@ video.addEventListener("timeupdate", async () => {
 		return;
 	}
 	lastVideoTime = video.currentTime;
-	try {
-		await faceDetection.send({ image: video });
-	} catch {
-		location.reload();
-	}
+	await faceDetection.send({ image: video });
 });
