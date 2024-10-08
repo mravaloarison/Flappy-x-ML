@@ -1,3 +1,8 @@
+// reload the page two times before launch
+// to allow the webcam to work
+location.reload();
+location.reload();
+
 const video = document.getElementById("webcam");
 
 const constraints = {

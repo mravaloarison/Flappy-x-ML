@@ -118,26 +118,19 @@ scene("game", () => {
 		"player",
 	]);
 
-	// window.addEventListener("updatedPosition", (event) => {
-	// 	const newPos = event.detail.newPos;
-	// 	player.pos.y = newPos;
-	// });
 	let targetY = PLAYER_Y_POS;
 	let currentY = player.pos.y;
-	let movementSpeed = 5; // Adjust this value to control smoothness
 
 	window.addEventListener("updatedPosition", (event) => {
-		targetY = event.detail.newPos; // Store the new target Y position
+		targetY = event.detail.newPos;
 	});
 
 	function smoothMove() {
 		if (GAME_OVER) return;
 
-		// Gradually move player towards the targetY using linear interpolation
 		if (Math.abs(currentY - targetY) > 0.1) {
-			// Small threshold to avoid jitter
-			currentY = currentY + (targetY - currentY) * 0.1; // Lerp factor 0.1 for smoothing
-			player.pos.y = currentY; // Update player position
+			currentY = currentY + (targetY - currentY) * 0.1;
+			player.pos.y = currentY;
 		}
 	}
 
