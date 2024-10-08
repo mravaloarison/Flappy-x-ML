@@ -1,4 +1,4 @@
-import kaboom from "https://unpkg.com/kaboom@3000.0.1/dist/kaboom.mjs";
+import kaboom from "./kaboom.js";
 
 const SCREEN_WIDTH = 396;
 const SCREEN_HEIGHT = 591;
