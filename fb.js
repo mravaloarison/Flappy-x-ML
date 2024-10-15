@@ -138,8 +138,8 @@ scene("game", () => {
 	function smoothMove() {
 		if (GAME_OVER) return;
 
-		if (Math.abs(currentY - targetY) > 0.1) {
-			currentY = currentY + (targetY - currentY) * 0.1;
+		if (Math.abs(currentY - targetY) > 0.159) {
+			currentY = currentY + (targetY - currentY) * 0.159;
 			player.pos.y = currentY;
 		}
 	}
