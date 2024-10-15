@@ -14,8 +14,18 @@
 
 <body>
     <div class="main">
-        <canvas id="game"></canvas>
-        <div id="liveView">
+        <div id="message" class="absolute-center">
+            <p>
+                📣 Please note that in some browser, the game might need to be reloaded to work properly.
+            </p>
+            <p>
+                ✅ Make sure to refresh the page if there is displaying an error message on the game canvas when you
+                start the game.
+            </p>
+            <button id="close-message"> Ok</button>
+        </div>
+        <canvas id="game" class="hidden"></canvas>
+        <div id="liveView" class="hidden">
             <video id="webcam" autoplay playsinline></video>
         </div>
     </div>
@@ -23,6 +33,19 @@
         © 2024 By Rava
     </footer>
 
+    <script type="module">
+        const message = document.getElementById("message");
+        const closeMessage = document.getElementById("close-message");
+        const videoEl = document.getElementById("liveView");
+        const gameEl = document.getElementById("game");
+
+        closeMessage.addEventListener("click", () => {
+            message.classList.remove("visible");
+            message.style.display = "none";
+            videoEl.classList.remove("hidden");
+            gameEl.classList.remove("hidden");
+        });
+    </script>
     <script type="module" src="fb.js"></script>
     <script type="module" src="fd.js"></script>
 </body>

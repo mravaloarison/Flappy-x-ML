@@ -1,12 +1,5 @@
 // reload the page two times before launch
 // to allow the webcam to work
-let firstTime = localStorage.getItem("firstTime");
-
-if (!firstTime) {
-	localStorage.setItem("firstTime", true);
-	alert("Please reload the page 2~3 times to allow the game to load");
-	location.reload();
-}
 
 const video = document.getElementById("webcam");
 
