@@ -130,6 +130,7 @@ scene("game", () => {
 
 	let targetY = PLAYER_Y_POS;
 	let currentY = player.pos.y;
+	let lerpFactor = 0.072;
 
 	window.addEventListener("updatedPosition", (event) => {
 		targetY = event.detail.newPos;
@@ -138,14 +139,17 @@ scene("game", () => {
 	function smoothMove() {
 		if (GAME_OVER) return;
 
-		if (Math.abs(currentY - targetY) > 0.159) {
-			currentY = currentY + (targetY - currentY) * 0.159;
+		const delta = targetY - currentY;
+		if (Math.abs(delta) > 0.1) {
+			currentY = currentY + delta * lerpFactor;
+			player.pos.y = currentY;
+		} else {
+			currentY = targetY;
 			player.pos.y = currentY;
 		}
 	}
 
 	loop(0.01, smoothMove);
-
 	const birdFrames = [
 		"bluebird-downflap",
 		"bluebird-midflap",
