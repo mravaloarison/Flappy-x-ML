@@ -23,28 +23,29 @@ The classic **Flappy Bird** game but with face detection. Using **Mediapipe** fo
            window.dispatchEvent(event);
        }
    }
-```
+   ```
 
 2. **Bird Movement**: The bird's movement is based on the nose's vertical position, and smooth transition is achieved using linear interpolation.
 
-```js
-window.addEventListener("updatedPosition", (event) => {
-    targetY = event.detail.newPos;
-});
-
-function smoothMove() {
-    if (GAME_OVER) return;
-
-    const delta = targetY - currentY;
-    if (Math.abs(delta) > 0.1) {
-        currentY = currentY + delta * lerpFactor;
-        player.pos.y = currentY;
-    } else {
-        currentY = targetY;
-        player.pos.y = currentY;
-    }
-}
-```
+   ```js
+   window.addEventListener("updatedPosition", (event) => {
+       targetY = event.detail.newPos;
+   });
+   
+   function smoothMove() {
+       if (GAME_OVER) return;
+   
+       const delta = targetY - currentY;
+       if (Math.abs(delta) > 0.1) {
+           currentY = currentY + delta * lerpFactor;
+           player.pos.y = currentY;
+       } else {
+           currentY = targetY;
+           player.pos.y = currentY;
+       }
+   }
+   ```
+   
 ## Technology used
 - Kaboom.js: For the game mechanics and gamification.
 - Mediapipe: For face detection and landmark tracking.
