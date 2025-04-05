@@ -4,8 +4,9 @@ The classic **Flappy Bird** game but with face detection. Using **Mediapipe** fo
 
 ## Demo Links
 
-- [Live Demo](#)  
-- [Video Demo](#)
+- [Live Demo](https://mravaloarison.github.io/Flappy-x-ML/)  
+- [Video Demo](https://youtu.be/6fLMEm1HIjQ)
+- [Github code](https://github.com/mravaloarison/Flappy-x-ML)
 
 ⚠️ **First-time users may need to refresh the page twice for the game to work correctly.** This is due to the face detection initialization timing and will be addressed.
 
