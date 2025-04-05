@@ -24,7 +24,9 @@ The classic **Flappy Bird** game but with face detection. Using **Mediapipe** fo
        }
    }
 ```
+
 2. **Bird Movement**: The bird's movement is based on the nose's vertical position, and smooth transition is achieved using linear interpolation.
+
 ```js
 window.addEventListener("updatedPosition", (event) => {
     targetY = event.detail.newPos;
